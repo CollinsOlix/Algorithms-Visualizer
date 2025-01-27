@@ -1,0 +1,71 @@
+h2 {
+  color: #0b0;
+}
+main {
+  display: flex;
+  flex-direction: row;
+  min-width: 700px;
+}
+#wrapper {
+  flex: 4;
+  display: grid;
+  width: 65vw;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+#right_wrapper {
+  flex: 1;
+  background-color: red;
+  padding: 30px;
+  border-radius: 0.2em;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  height: 200px;
+  width: fit-content;
+  background-color: rgb(55, 255, 245);
+  border-radius: 0.2em;
+  padding: 10px;
+  margin: 0 15px;
+}
+
+.bar {
+  width: 16px;
+  margin-right: 2px;
+  border: 1px solid blue;
+  padding: 5px;
+  border-radius: 0.3em;
+  text-align: center;
+  background-color: #dfdfdf;
+  font-size: small;
+}
+.select_sort_bar {
+  width: 16px;
+  margin-right: 2px;
+  border: 1px solid blue;
+  padding: 5px;
+  border-radius: 0.3em;
+  text-align: center;
+  background-color: #dfdfdf;
+  font-size: small;
+}
+.active {
+  background-color: rgb(16, 87, 153);
+}
+.next {
+  background-color: rgb(55, 153, 245);
+}
+.height {
+  animation: changeHeight 400ms ease-in;
+  animation-fill-mode: forwards;
+}
+@keyframes changeHeight {
+  from {
+    height: var(--previous-height, auto);
+  }
+  to {
+    height: var(--current-height, auto);
+  }
+}
