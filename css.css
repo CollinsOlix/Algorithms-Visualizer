@@ -1,6 +1,9 @@
 h2 {
   color: #0b0;
 }
+h4 {
+  text-align: center;
+}
 main {
   display: flex;
   flex-direction: row;
@@ -10,8 +13,13 @@ main {
   flex: 4;
   display: grid;
   width: 65vw;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 10px;
+}
+.mini_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 #right_wrapper {
   flex: 1;
@@ -29,6 +37,8 @@ main {
   border-radius: 0.2em;
   padding: 10px;
   margin: 0 15px;
+  min-width: 250px;
+  min-height: 250px;
 }
 
 .bar {

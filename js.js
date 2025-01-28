@@ -3,22 +3,18 @@ let bubble_sort_list = [37, 12, 6, 23, 43, 45, 19, 33];
 //
 bubble_sort_container.addEventListener("mouseover", () => {
   bubble_sort_hovered = true;
-  console.log(bubble_sort_hovered);
 });
 bubble_sort_container.addEventListener("mouseleave", () => {
   bubble_sort_hovered = false;
-  console.log(bubble_sort_hovered);
 });
 
 //
 let select_sort_container = document.querySelector("#select_sort_container");
 select_sort_container.addEventListener("mouseover", () => {
   select_sort_hovered = true;
-  console.log(select_sort_hovered);
 });
 select_sort_container.addEventListener("mouseleave", () => {
   select_sort_hovered = false;
-  console.log(select_sort_hovered);
 });
 let select_sort_list = new Array(8)
   .fill(0)
@@ -65,7 +61,6 @@ updateBars(bubble_sort_container, bubble_sort_list, ".bubble_sort_bar", [
 ]);
 
 const swapFunc = async (a, b, bars) => {
-  console.log("Bars: ", bars);
   let pxs = [bars[a].style.height, bars[b].style.height];
   bars[a].style.setProperty("--previous-height", bars[a].style.height);
   temp = bars[a].innerText;
@@ -92,17 +87,33 @@ const swapFunc = async (a, b, bars) => {
 };
 
 const select_sort_Func = async () => {
+  select_sort_hovered = true;
+  select_sort_list = new Array(8)
+    .fill(0)
+    .map(() => Math.floor(Math.random() * 70));
+  //
   let select_sort_bars = updateBars(
     select_sort_container,
     select_sort_list,
     ".select_sort_bar",
     ["bar", "select_sort_bar"]
   );
+  select_sort_bars.forEach((bar) => {
+    bar.classList.remove("active");
+    bar.classList.remove("next");
+    console.log(bar);
+  });
 
   let index = 0;
-  while (index < select_sort_list.length - 1) {
+  while (index < select_sort_list.length - 1 && select_sort_hovered) {
+    console.log("Bars2: ", select_sort_bars);
     select_sort_bars[index].classList.add("next");
     for (i = index + 1; i < select_sort_list.length; i++) {
+      // select_sort_bars[i].classList.remove("active");
+      if (!select_sort_hovered) {
+        await delay(2000);
+        break;
+      }
       select_sort_bars[i].classList.add("active");
       await delay(400);
       if (select_sort_list[i] < select_sort_list[index]) {
@@ -113,6 +124,8 @@ const select_sort_Func = async () => {
         ];
       }
       select_sort_bars[i].classList.remove("active");
+      await delay(100);
+      //   await delay(300);
     }
     select_sort_bars[index].classList.remove("next");
     index++;
