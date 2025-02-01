@@ -1,0 +1,86 @@
+Creating a bubble sort animation in HTML can be a fun and educational project.
+Below is a simple example using HTML, CSS, and JavaScript to animate the bubble
+sort algorithm. HTML
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bubble Sort Animation</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+
+      .container {
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 20px;
+      }
+
+      .bar {
+        width: 30px;
+        margin: 0 5px;
+        background-color: #3498db;
+        transition: height 0.3s, background-color 0.3s;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+    <button onclick="bubbleSort()">Start Bubble Sort</button>
+
+    <script>
+      let select_sort_list = new Array(8)
+        .fill(0)
+        .map(() => Math.floor(Math.random() * 70))
+        .forEach((bar) => {
+          document.querySelector(".container").innerHTML =
+            document.querySelector(".container").innerHTML +
+            `<div class="bar" style="height: ${bar + 50}px">${bar}</div>`;
+        });
+      async function bubbleSort() {
+        const bars = document.querySelectorAll(".bar");
+        let len = bars.length;
+        let swapped;
+
+        do {
+          swapped = false;
+          for (let i = 0; i < len - 1; i++) {
+            bars[i].style.backgroundColor = "#e74c3c";
+            bars[i + 1].style.backgroundColor = "#74c43c";
+
+            await new Promise((resolve) => setTimeout(resolve, 500));
+
+            if (parseInt(bars[i].innerText) > parseInt(bars[i + 1].innerText)) {
+              let tempHeight = bars[i].innerText;
+              bars[i].innerText = bars[i + 1].innerText;
+              bars[i + 1].innerText = tempHeight;
+              tempHeight = bars[i].style.height;
+              bars[i].style.height = bars[i + 1].style.height;
+              bars[i + 1].style.height = tempHeight;
+              swapped = true;
+            }
+
+            bars[i].style.backgroundColor = "#3498db";
+            bars[i + 1].style.backgroundColor = "#3498db";
+          }
+          len--;
+        } while (swapped);
+      }
+    </script>
+  </body>
+</html>

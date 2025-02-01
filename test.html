@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #divvy {
+        height: 40px;
+        background-color: #ebb;
+        width: 0;
+        animation-fill-mode: forwards;
+        --previous-width: 0px;
+        --current-width: 120px;
+        --previous-height: 40px;
+        --current-height: 120px;
+      }
+      .widthInc {
+        animation: widthAnimation 500ms ease-in 2s,
+          heightAnimation 500ms ease-in 2.7s;
+      }
+      .heightInc {
+      }
+      @keyframes widthAnimation {
+        from {
+          width: var(--previous-width, auto);
+        }
+        to {
+          width: var(--current-width, auto);
+        }
+      }
+      @keyframes heightAnimation {
+        from {
+          height: var(--previous-height, auto);
+        }
+        to {
+          height: var(--current-height, auto);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="divvy" class="widthInc"></div>
+  </body>
+</html>

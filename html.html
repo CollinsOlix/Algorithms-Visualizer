@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
 
     <title>Document</title>
   </head>
@@ -17,7 +23,7 @@
           <div
             id="bubble_sort_container"
             class="container"
-            onmouseover="bubble_sort_Func()"
+            onmousedown="bubble_sort_Func()"
           ></div>
           <h4>Bubble Sort</h4>
         </div>
@@ -26,13 +32,31 @@
           <div
             id="select_sort_container"
             class="container"
-            onmouseover="select_sort_Func()"
+            onmousedown="select_sort_Func()"
           ></div>
           <h4>Selection Sort</h4>
+        </div>
+        <div class="mini_wrapper">
+          <div
+            id="insertion_sort_container"
+            class="container"
+            onmousedown="insertion_sort_Func()"
+          ></div>
+          <h4>Insertion Sort</h4>
         </div>
       </div>
       <div id="right_wrapper">
         <h3>Algorithm Information</h3>
+        <br />
+        <h4>Description</h4>
+        <p id="name">Description text</p>
+        <p id="description">Description text</p>
+        <hr />
+        <h4>Time Complexity</h4>
+        <p id="timeComplexity">Time complexity text</p>
+        <hr />
+        <h4>Space Complexity</h4>
+        <p id="spaceComplexity">Space complexity text</p>
       </div>
     </main>
   </body>

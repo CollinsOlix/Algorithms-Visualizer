@@ -1,3 +1,6 @@
+* {
+  font-family: "Poppins", serif;
+}
 h2 {
   color: #0b0;
 }
@@ -10,7 +13,7 @@ main {
   min-width: 700px;
 }
 #wrapper {
-  flex: 4;
+  flex: 5;
   display: grid;
   width: 65vw;
   grid-template-columns: repeat(3, 1fr);
@@ -22,7 +25,7 @@ main {
   align-items: center;
 }
 #right_wrapper {
-  flex: 1;
+  flex: 2;
   background-color: red;
   padding: 30px;
   border-radius: 0.2em;
@@ -31,6 +34,7 @@ main {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
+  justify-content: center;
   height: 200px;
   width: fit-content;
   background-color: rgb(55, 255, 245);
@@ -61,6 +65,9 @@ main {
   background-color: #dfdfdf;
   font-size: small;
 }
+.unsorted {
+  background-color: #deface;
+}
 .active {
   background-color: rgb(16, 87, 153);
 }
@@ -71,7 +78,33 @@ main {
   animation: changeHeight 400ms ease-in;
   animation-fill-mode: forwards;
 }
+.animateDimensions2 {
+  animation: widthAnimation 500ms ease-in 0ms,
+    heightAnimation 500ms ease-in 450ms;
+  animation-fill-mode: forwards;
+}
+.animateDimensions {
+  animation: heightAnimation 500ms ease-in 0s,
+    widthAnimation 500ms ease-in 450ms;
+  animation-fill-mode: forwards;
+}
 @keyframes changeHeight {
+  from {
+    height: var(--previous-height, auto);
+  }
+  to {
+    height: var(--current-height, auto);
+  }
+}
+@keyframes widthAnimation {
+  from {
+    width: var(--previous-width, auto);
+  }
+  to {
+    width: var(--current-width, auto);
+  }
+}
+@keyframes heightAnimation {
   from {
     height: var(--previous-height, auto);
   }
